@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <rect width="200" height="200" rx="16" fill="#fdfaf6"/>
+  <ellipse cx="100" cy="140" rx="55" ry="22" fill="#5c3a21"/>
+  <path d="M55 135 Q100 80 145 135 Z" fill="#8c5835"/>
+  <circle cx="100" cy="120" r="15" fill="#a06840"/>
+  <circle cx="85" cy="125" r="8" fill="#b87d52"/>
+  <circle cx="115" cy="125" r="8" fill="#b87d52"/>
+  <text x="100" y="180" font-family="sans-serif" font-size="12" font-weight="bold" fill="#5c3a21" text-anchor="middle">BỘT TRẦM RỪNG</text>
+</svg>

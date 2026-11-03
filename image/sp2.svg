@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <rect width="200" height="200" rx="16" fill="#fdfaf6"/>
+  <path d="M100 40 C115 75 135 125 130 155 C125 170 75 170 70 155 C65 125 85 75 100 40 Z" fill="#6d462b"/>
+  <path d="M100 40 C108 75 120 125 116 155 C112 168 88 168 84 155 C80 125 92 75 100 40 Z" fill="#8c5835"/>
+  <path d="M100 20 Q105 30 100 35" stroke="#c59b27" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <text x="100" y="185" font-family="sans-serif" font-size="12" font-weight="bold" fill="#5c3a21" text-anchor="middle">NỤ TRẦM</text>
+</svg>
