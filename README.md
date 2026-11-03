@@ -2,5 +2,6 @@
 /IMAGE
 /JS
 /VIEW
+|||||||||||||
 KHÔNG SỬA file index.html 
 server.py
