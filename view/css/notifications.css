@@ -1,0 +1,22 @@
+.cart-toast {
+    position: fixed;
+    right: 20px;
+    bottom: max(88px, calc(env(safe-area-inset-bottom) + 64px));
+    z-index: 2000;
+    max-width: min(380px, calc(100vw - 40px));
+    padding: 15px 20px;
+    border-radius: 10px;
+    background: #35583c;
+    color: #fff;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.16);
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.cart-toast.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+    .cart-toast { transition: none; }
+}
