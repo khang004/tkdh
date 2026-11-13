@@ -94,7 +94,9 @@ const Account = {
         let user;
         try { user = this.current(); } catch { return; }
         document.querySelectorAll('a[href="taikhoan.html"]').forEach(link => {
-            const label = link.querySelector('span:last-child');
+            const label = link.querySelector('span:last-child:not(.material-symbols-outlined)');
+            link.setAttribute('aria-label', user ? 'Tài khoản của tôi' : 'Đăng nhập / Đăng ký');
+            link.title = user ? 'Tài khoản của tôi' : 'Đăng nhập / Đăng ký';
             if (label) label.textContent = user ? 'Tài khoản của tôi' : 'Tài Khoản';
         });
     }

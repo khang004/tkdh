@@ -17,7 +17,7 @@ function finishAccountLogin() {
     accountField('loginForm').reset();
     accountField('registerForm').reset();
     if (new URLSearchParams(location.search).get('next') === 'checkout') {
-        location.href = 'giohang.html';
+        location.href = 'thanhtoan.html';
         return;
     }
     location.href = 'index.html';

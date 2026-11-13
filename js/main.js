@@ -67,23 +67,21 @@ const Cart = {
         this.updateBadge();
     },
     addItem(product) {
-        showBox(`Bạn có muốn thêm sản phẩm "${product.name}" vào giỏ hàng không?`, 'Thêm Vào Giỏ Hàng', () => {
-            let cart = this.getCart();
-            let existing = cart.find(item => item.id === product.id);
-            if (existing) {
-                existing.quantity += (product.quantity || 1);
-            } else {
-                cart.push({ ...product, quantity: product.quantity || 1 });
-            }
-            this.saveCart(cart);
-            showToast('✓ Đã thêm sản phẩm vào giỏ hàng thành công!');
-        }, true, null, 'Đồng ý');
+        let cart = this.getCart();
+        let existing = cart.find(item => item.id === product.id);
+        if (existing) {
+            existing.quantity += (product.quantity || 1);
+        } else {
+            cart.push({ ...product, quantity: product.quantity || 1 });
+        }
+        this.saveCart(cart);
+        showToast('✓ Đã thêm sản phẩm vào giỏ hàng thành công!');
     },
     removeItem(id, silent = false) {
         let cart = this.getCart().filter(item => item.id !== id);
         this.saveCart(cart);
         if (!silent) {
-            showBox('Đã xóa sản phẩm khỏi giỏ hàng!', 'Giỏ Hàng');
+            showToast('Đã xóa sản phẩm khỏi giỏ hàng!');
         }
     },
     updateQuantity(id, qty) {
@@ -152,7 +150,7 @@ const Cart = {
                     <div class="mini-cart-footer">
                         <div class="mini-cart-total">Tổng: <span>${total.toLocaleString('vi-VN')} đ</span></div>
                         <div style="display: flex; gap: 8px; margin-top: 10px;">
-                            <a href="giohang.html" class="mini-cart-btn" style="flex: 1; background: linear-gradient(135deg, #b91c1c, #991b1b);">Mua Ngay</a>
+                            <a href="thanhtoan.html" class="mini-cart-btn" style="flex: 1; background: linear-gradient(135deg, #b91c1c, #991b1b);">Thanh toán</a>
                             <a href="giohang.html" class="mini-cart-btn" style="flex: 1; background-color: var(--primary-color);">Xem Giỏ</a>
                         </div>
                     </div>
