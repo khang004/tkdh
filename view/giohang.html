@@ -190,7 +190,7 @@ img {
 
 /* Header & Menu điều hướng */
 .site-header {
-    background-color: var(--bg-white);
+    background-color: #f4e5cc;
     border-bottom: 2px solid var(--border-color);
     position: sticky;
     top: 0;
@@ -1618,6 +1618,9 @@ img {
     <link rel="stylesheet" href="css/search.css">
     <script src="../js/search.js" defer></script>
     <script src="../js/header.js" defer></script>
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/cart.css">
 </head>
 <body>
 
@@ -1678,9 +1681,8 @@ img {
                     </ul>
                 </nav>
                 <div class="mobile-actions">
-                    <a href="taikhoan.html" class="btn-link" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
-                        <span class="material-symbols-outlined icon-account">person</span>
-                        <span>Tài Khoản</span>
+                    <a href="taikhoan.html" class="btn-link account-icon-link" aria-label="Đăng nhập / Đăng ký" title="Đăng nhập / Đăng ký" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" height="40" width="40" fill="#F8E6D0" class="account-icon-svg" aria-hidden="true" focusable="false"><path d="M9.42,29.08q2.46-1.76 5.06-2.73T20,25.39t5.54,0.97t5.07,2.73q1.71-2.07 2.49-4.32T33.89,20q0-5.88-4.01-9.88T20,6.11t-9.88,4.01T6.11,20q0,2.51 0.8,4.76t2.51,4.32Zm6.49-9.35q-1.66-1.66-1.66-4.09t1.66-4.09T20,9.89t4.09,1.66t1.66,4.09t-1.66,4.09T20,21.39t-4.09-1.66ZM20,36.67q-3.43,0-6.47-1.31T8.22,31.78T4.65,26.47T3.33,20q0-3.46 1.31-6.49T8.22,8.22t5.31-3.58T20,3.33q3.46,0 6.49,1.31t5.29,3.58t3.58,5.29T36.67,20q0,3.43-1.31,6.47t-3.58,5.31t-5.29,3.58T20,36.67Zm4.38-3.44q2.11-0.66 4.07-2.17q-1.96-1.4-4.08-2.15T20,28.17t-4.36,0.74t-4.08,2.15q1.96,1.51 4.07,2.17T20,33.89t4.38-0.66ZM22.14,17.78q0.83-0.83 0.83-2.14T22.14,13.5T20,12.67T17.86,13.5t-0.83,2.14t0.83,2.14T20,18.61t2.14-0.83ZM20,15.64Zm0,15.39Z"/></svg>
                     </a>
                     <button class="btn-search" title="Tìm kiếm" aria-label="Tìm kiếm">
                         <span class="material-symbols-outlined icon-search" style="font-size: 21px;">search</span>
@@ -1694,9 +1696,8 @@ img {
 
             <!-- Tác vụ cho Desktop -->
             <div class="header-actions">
-                <a href="taikhoan.html" class="btn-link" style="display: inline-flex; align-items: center; gap: 6px;">
-                    <span class="material-symbols-outlined icon-account">person</span>
-                    <span>Tài Khoản</span>
+                <a href="taikhoan.html" class="btn-link account-icon-link" aria-label="Đăng nhập / Đăng ký" title="Đăng nhập / Đăng ký" style="display: inline-flex; align-items: center; gap: 6px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" height="40" width="40" fill="#F8E6D0" class="account-icon-svg" aria-hidden="true" focusable="false"><path d="M9.42,29.08q2.46-1.76 5.06-2.73T20,25.39t5.54,0.97t5.07,2.73q1.71-2.07 2.49-4.32T33.89,20q0-5.88-4.01-9.88T20,6.11t-9.88,4.01T6.11,20q0,2.51 0.8,4.76t2.51,4.32Zm6.49-9.35q-1.66-1.66-1.66-4.09t1.66-4.09T20,9.89t4.09,1.66t1.66,4.09t-1.66,4.09T20,21.39t-4.09-1.66ZM20,36.67q-3.43,0-6.47-1.31T8.22,31.78T4.65,26.47T3.33,20q0-3.46 1.31-6.49T8.22,8.22t5.31-3.58T20,3.33q3.46,0 6.49,1.31t5.29,3.58t3.58,5.29T36.67,20q0,3.43-1.31,6.47t-3.58,5.31t-5.29,3.58T20,36.67Zm4.38-3.44q2.11-0.66 4.07-2.17q-1.96-1.4-4.08-2.15T20,28.17t-4.36,0.74t-4.08,2.15q1.96,1.51 4.07,2.17T20,33.89t4.38-0.66ZM22.14,17.78q0.83-0.83 0.83-2.14T22.14,13.5T20,12.67T17.86,13.5t-0.83,2.14t0.83,2.14T20,18.61t2.14-0.83ZM20,15.64Zm0,15.39Z"/></svg>
                 </a>
                 
                 <!-- Icon Tìm kiếm cạnh Giỏ hàng -->
@@ -1716,269 +1717,62 @@ img {
         </div>
     </header>
 
-    <main class="container" style="padding: 40px 0;">
-        <div class="section-title">
-            <h2>Giỏ Hàng & Thanh Toán</h2>
-            <p>Kiểm tra danh sách đơn hàng và hoàn tất đặt hàng</p>
-        </div>
+    <section class="cart-banner" aria-labelledby="cartPageTitle"><div class="cart-banner-content"><p>MỘC HƯƠNG · MỘC SINH HƯƠNG – TÂM CÁT TƯỜNG</p><h1 id="cartPageTitle">Giỏ hàng của bạn</h1><span>Gói ghém chút hương trầm, gửi trao một khoảng an yên.</span></div></section>
+    <main class="container cart-page">
+        <nav class="cart-breadcrumb" aria-label="Đường dẫn"><a href="index.html">Trang chủ</a><span aria-hidden="true">/</span><span aria-current="page">Giỏ hàng</span></nav>
 
         <div class="cart-checkout-layout">
             <!-- Danh sách sản phẩm trong giỏ -->
             <div class="cart-box">
-                <h3>Sản Phẩm Trong Giỏ</h3>
+                <div class="cart-card-heading"><h2>Sản phẩm đã chọn</h2><a href="sanpham.html">Tiếp tục mua sắm <span aria-hidden="true">↗</span></a></div>
                 <div id="cart-content">
                     <!-- Bảng giỏ hàng hiển thị bằng JS -->
                 </div>
             </div>
 
-            <!-- Giao diện thanh toán -->
-            <div class="checkout-box">
-                <h3>Thông Tin Giao Hàng & Thanh Toán</h3>
-                <p style="font-size:13px; margin-bottom:16px;">Xem <a href="chinhsach.html#thanh-toan">chính sách thanh toán</a>, <a href="chinhsach.html#giao-hang">giao hàng</a> và <a href="chinhsach.html#doi-tra">đổi trả</a> trước khi đặt hàng.</p>
-                <form id="checkoutForm" onsubmit="handleCheckout(event)">
-                    <div class="form-group">
-                        <label for="order-name">Họ và tên người nhận *</label>
-                        <input type="text" id="order-name" class="form-control" placeholder="Nguyễn Văn A" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="order-phone">Số điện thoại *</label>
-                        <input type="tel" id="order-phone" class="form-control" placeholder="0901234567" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="order-address">Địa chỉ giao nhận *</label>
-                        <input type="text" id="order-address" class="form-control" placeholder="Số nhà, đường, phường, quận, tỉnh/TP" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="order-note">Ghi chú giao hàng</label>
-                        <textarea id="order-note" class="form-control" placeholder="Thời gian giao hoặc dặn dò thêm..." rows="2"></textarea>
-                    </div>
-
-                    <div class="payment-methods">
-                        <label style="font-weight: 500; font-size: 14px; display: block; margin-bottom: 8px;">Phương thức thanh toán:</label>
-                        <div class="payment-option">
-                            <input type="radio" id="cod" name="payment" value="COD" checked onchange="togglePaymentQR()">
-                            <label for="cod">Thanh toán khi nhận hàng (COD)</label>
-                        </div>
-                        <div class="payment-option">
-                            <input type="radio" id="bank" name="payment" value="Bank" onchange="togglePaymentQR()">
-                            <label for="bank">Chuyển khoản ngân hàng (Quét mã QR)</label>
-                        </div>
-
-                        <!-- Khung quét mã QR khi chọn Chuyển khoản -->
-                        <div id="qrBankBox" class="qr-bank-box">
-                            <p style="font-weight: 600; color: var(--primary-color); margin-bottom: 5px;">Quét mã VietQR để thanh toán</p>
-                            <img src="../image/qr-chuyenkhoan.png" alt="Mã QR Chuyển Khoản Ngân Hàng" class="qr-img">
-                            <div class="qr-details">
-                                <p><strong>Ngân hàng:</strong> TMCP Quân Đội (MB Bank)</p>
-                                <p><strong>Chủ tài khoản:</strong> MOC HUONG</p>
-                                <p><strong>Số tài khoản:</strong> <span style="font-weight: bold; color: var(--primary-color);">0915268293</span></p>
-                                <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">* Vui lòng ghi nội dung: <em>[Họ tên] + [Số điện thoại]</em></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn-primary" style="width: 100%; padding: 13px; font-size: 16px; background: linear-gradient(135deg, #b91c1c, #991b1b); color: #fff !important; font-weight: 800; border-radius: 6px; box-shadow: 0 4px 12px rgba(185, 28, 28, 0.35);">MUA NGAY (TIẾN HÀNH ĐẶT HÀNG)</button>
-                </form>
-            </div>
+            <aside class="checkout-box cart-overview" aria-labelledby="cartSummaryTitle"><h2 id="cartSummaryTitle">Tóm tắt giỏ hàng</h2><div class="cart-overview-row"><span>Số lượng sản phẩm</span><strong id="cartSummaryCount">0</strong></div><div class="cart-overview-row cart-overview-total"><span>Tạm tính</span><strong id="cartSummaryTotal">0 đ</strong></div><p class="cart-shipping-note">Chưa bao gồm phí giao hàng. Bạn sẽ nhập thông tin giao nhận ở bước thanh toán.</p><button type="button" class="btn-primary cart-place-order cart-next" id="cartNextButton"><span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span><span>Thanh toán</span></button><p class="cart-next-note" id="cartNextNote" role="status"></p></aside>
         </div>
     </main>
 
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container footer-content">
-            <div class="footer-col">
-                <div class="footer-logo-wrap">
-                    <img src="../image/logo-thuong-hieu.png" alt="Logo Mộc Hương" class="footer-logo-img">
+            <div class="footer-brand">
+                <img src="../image/logo-thuong-hieu.png" alt="Logo Mộc Hương" class="footer-brand-logo" loading="lazy">
+                <div>
                     <h3>MỘC HƯƠNG</h3>
+                    <p>Chuyên cung cấp các sản phẩm trầm hương tự nhiên.</p>
                 </div>
-                <p>Chuyên cung cấp các vật phẩm trầm hương tự nhiên nguyên chất, tôn vinh giá trị văn hóa và tâm linh truyền thống.</p>
             </div>
-            <div class="footer-col">
+            <div class="footer-contact">
                 <h3>Thông Tin Liên Hệ</h3>
-                <p><strong>Địa chỉ:</strong> 168 Nguyễn Văn Cừ Nối Dài, An Bình, Cần Thơ, Việt Nam</p>
-                <p><strong>Số điện thoại:</strong> 0292-379-8668</p>
-                <p><strong>Email:</strong> lienhe@tramhuongviet.com</p>
+                <p class="footer-contact-row"><span class="material-symbols-outlined" aria-hidden="true">location_on</span><span>168 Nguyễn Văn Cừ Nối Dài, An Bình, Cần Thơ, Việt Nam</span></p>
+                <p class="footer-contact-row"><span class="material-symbols-outlined" aria-hidden="true">call</span><a href="tel:02923798668">0292-379-8668</a></p>
+                <p class="footer-contact-row"><span class="material-symbols-outlined" aria-hidden="true">mail</span><a href="mailto:lienhe@tramhuongviet.com">lienhe@tramhuongviet.com</a></p>
             </div>
-            <div class="footer-col">
-                <h3>Kết Nối Mạng Xã Hội</h3>
-                <p>Theo dõi chúng tôi để cập nhật các ưu đãi mới nhất:</p>
-                <div class="social-links">
-                    <a href="https://facebook.com" target="_blank" class="social-badge">Facebook</a>
-                    <a href="https://zalo.me" target="_blank" class="social-badge">Zalo</a>
+            <div class="footer-social">
+                <h3>Kết Nối Với Chúng Tôi</h3>
+                <div class="footer-social-links">
+                    <a href="https://www.facebook.com/NamCanThoUniversity" target="_blank" rel="noopener noreferrer" class="footer-social-link footer-facebook" aria-label="Facebook" title="Facebook">f</a>
+                    <a href="lienhe.html" class="footer-social-link footer-zalo" aria-label="Thông tin liên hệ Zalo" title="Thông tin liên hệ Zalo">Zalo</a>
                 </div>
-            </div>
-            <div class="footer-col footer-policies">
-                <h3>Chính Sách & Hỗ Trợ</h3>
-                <ul class="policy-footer-links">
-                    <li><a href="chinhsach.html#giao-hang">Giao hàng & nhận hàng</a></li>
-                    <li><a href="chinhsach.html#doi-tra">Đổi trả & hoàn tiền</a></li>
-                    <li><a href="chinhsach.html#thanh-toan">Đặt hàng & thanh toán</a></li>
-                    <li><a href="chinhsach.html#bao-quan">Bảo quản & hỗ trợ</a></li>
-                    <li><a href="chinhsach.html#bao-mat">Bảo mật thông tin</a></li>
-                </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 MỘC HƯƠNG - Tất cả quyền được bảo lưu.</p>
+            <nav class="footer-policies" aria-label="Chính sách mua hàng">
+                <a href="chinhsach.html#giao-hang">Chính sách giao hàng</a>
+                <a href="chinhsach.html#doi-tra">Đổi trả &amp; hoàn tiền</a>
+                <a href="chinhsach.html#thanh-toan">Chính sách thanh toán</a>
+                <a href="chinhsach.html#bao-quan">Bảo quản &amp; hỗ trợ</a>
+                <a href="chinhsach.html#bao-mat">Chính sách bảo mật</a>
+                <a href="chinhsach.html#khieu-nai">Giải quyết khiếu nại</a>
+            </nav>
+            <p>&copy; 2026 Mộc Hương. Bản quyền thuộc về Mộc Hương</p>
         </div>
     </footer>
 
     <script src="../js/main.js"></script>
-    <script>
-        function renderCart() {
-            const items = Cart.getCart();
-            const container = document.getElementById('cart-content');
-
-            if (items.length === 0) {
-                container.innerHTML = `
-                    <div style="text-align: center; padding: 40px 0;">
-                        <p style="color: var(--text-muted); font-size: 16px; margin-bottom: 22px;">
-                            Giỏ hàng của bạn đang trống.
-                        </p>
-                        <a href="sanpham.html" class="btn-primary" style="display: inline-block; background-color: #c59b27; color: #3e2413; font-weight: bold; padding: 12px 28px; border-radius: 6px; box-shadow: 0 4px 12px rgba(197, 155, 39, 0.3);">
-                            Tiếp tục mua hàng
-                        </a>
-                    </div>
-                `;
-                return;
-            }
-
-            let html = `
-                <!-- Bảng hiển thị trên máy tính (Desktop) -->
-                <table class="cart-table">
-                    <thead>
-                        <tr>
-                            <th>Sản phẩm</th>
-                            <th>Đơn giá</th>
-                            <th>SL</th>
-                            <th>Thành tiền</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            `;
-
-            let mobileCardsHtml = `<div class="mobile-cart-list">`;
-
-            items.forEach(item => {
-                const subtotal = item.price * item.quantity;
-                const imgSrc = window.productImages[item.id] || item.image || '../image/logo-thuong-hieu.png';
-                
-                // Hàng cho Desktop (có ảnh thumbnail)
-                html += `
-                    <tr>
-                        <td>
-                            <div style="display: flex; align-items: center; gap: 12px;">
-                                <img src="${imgSrc}" alt="${item.name}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background: #fdfaf7; flex-shrink: 0;">
-                                <div>
-                                    <strong style="display: block; line-height: 1.35; color: var(--primary-dark);">${item.name}</strong>
-                                    <span style="font-size: 12px; color: var(--text-muted);">Mã: SP-0${item.id || 1}</span>
-                                </div>
-                            </div>
-                        </td>
-                        <td style="font-weight: 600;">${item.price.toLocaleString('vi-VN')} đ</td>
-                        <td>
-                            <button class="qty-btn" onclick="changeQty(${item.id}, ${item.quantity - 1})">-</button>
-                            <span style="margin: 0 6px; font-weight: 600;">${item.quantity}</span>
-                            <button class="qty-btn" onclick="changeQty(${item.id}, ${item.quantity + 1})">+</button>
-                        </td>
-                        <td style="font-weight: 700; color: var(--accent-hover);">${subtotal.toLocaleString('vi-VN')} đ</td>
-                        <td><button class="btn-del" onclick="removeItem(${item.id})">Xóa</button></td>
-                    </tr>
-                `;
-
-                // Thẻ dạng Card gọn gàng cho Mobile (có ảnh thumbnail)
-                mobileCardsHtml += `
-                    <div class="mobile-cart-card">
-                        <div style="display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px;">
-                            <img src="${imgSrc}" alt="${item.name}" style="width: 56px; height: 56px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); background: #fdfaf7; flex-shrink: 0;">
-                            <div style="flex: 1; min-width: 0;">
-                                <div class="mobile-cart-header" style="margin-bottom: 4px; padding-bottom: 0; border: none;">
-                                    <span class="mobile-cart-title">${item.name}</span>
-                                    <button class="btn-del" onclick="removeItem(${item.id})" style="font-size: 13px;">Xóa</button>
-                                </div>
-                                <div style="font-size: 13px; color: var(--text-muted);">Đơn giá: ${item.price.toLocaleString('vi-VN')} đ</div>
-                            </div>
-                        </div>
-                        <div class="mobile-cart-bottom">
-                            <div style="display: flex; align-items: center;">
-                                <button class="qty-btn" onclick="changeQty(${item.id}, ${item.quantity - 1})">-</button>
-                                <span style="margin: 0 10px; font-weight: 600;">${item.quantity}</span>
-                                <button class="qty-btn" onclick="changeQty(${item.id}, ${item.quantity + 1})">+</button>
-                            </div>
-                            <div class="mobile-cart-subtotal">${subtotal.toLocaleString('vi-VN')} đ</div>
-                        </div>
-                    </div>
-                `;
-            });
-
-            mobileCardsHtml += `</div>`;
-
-            const total = Cart.getTotalPrice();
-            html += `
-                    </tbody>
-                </table>
-                ${mobileCardsHtml}
-                <div class="cart-summary">
-                    Tổng tiền thanh toán: <strong>${total.toLocaleString('vi-VN')} đ</strong>
-                </div>
-            `;
-            container.innerHTML = html;
-        }
-
-        // Bật / tắt hiển thị mã QR khi chọn Chuyển khoản
-        function togglePaymentQR() {
-            const bankRadio = document.getElementById('bank');
-            const qrBox = document.getElementById('qrBankBox');
-            if (bankRadio && qrBox) {
-                qrBox.classList.toggle('active', bankRadio.checked);
-            }
-        }
-
-        function changeQty(id, newQty) {
-            Cart.updateQuantity(id, newQty);
-            renderCart();
-        }
-
-        function removeItem(id) {
-            Cart.removeItem(id, false);
-            renderCart();
-        }
-
-        function fillShipping() {
-            try {
-                const user = Account.current();
-                if (!user) return;
-                for (const key of ['name', 'phone', 'address']) document.getElementById('order-' + key).value = user[key] || '';
-            } catch (error) { showToast(error.message); }
-        }
-
-        function handleCheckout(e) {
-            e.preventDefault();
-            if (!e.target.reportValidity()) return;
-            try {
-                if (!Account.current()) {
-                    showBox('Vui lòng đăng nhập để đặt hàng và lưu lịch sử đơn. Giỏ hàng của bạn sẽ được giữ lại.', 'Đăng nhập để đặt hàng', () => { window.location.href = 'taikhoan.html?next=checkout'; });
-                    return;
-                }
-                const shipping = {};
-                for (const key of ['name', 'phone', 'address', 'note']) shipping[key] = document.getElementById('order-' + key).value.trim();
-                const payment = document.querySelector('input[name="payment"]:checked').value;
-                const order = Account.placeOrder(Cart.getCart(), shipping, payment);
-                Cart.clearCart();
-                renderCart();
-                e.target.reset();
-                togglePaymentQR();
-                fillShipping();
-                showBox('Đã lưu đơn dùng thử ' + order.id + '. Bạn có thể xem chi tiết trong Tài khoản. Đơn chưa được gửi đến cửa hàng; thanh toán chưa được xác nhận.', 'Đã lưu đơn hàng', () => { window.location.href = 'taikhoan.html#ordersSection'; }, false);
-            } catch (error) {
-                showBox(error.message || 'Không thể lưu đơn. Vui lòng thử lại.', 'Đặt hàng', null, false);
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', fillShipping);
-        document.addEventListener('DOMContentLoaded', renderCart);
-    </script>
+    <script src="../js/cart-page.js"></script>
 </body>
 </html>
 
