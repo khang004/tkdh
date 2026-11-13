@@ -1,0 +1,156 @@
+﻿/* Tông nâu và chữ kem đồng bộ với footer. */
+.site-header .account-icon-link {
+    padding: 0;
+    border: none;
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+}
+.site-header .account-icon-svg {
+    display: block;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+.site-header {
+    background: #f7e4d2;
+    color: #542b0e;
+    border-bottom-color: #c7985766;
+}
+.site-header .brand-logo-img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin: 0;
+    padding: 0;
+    object-fit: contain;
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    filter: none;
+    opacity: 1;
+    mix-blend-mode: normal;
+}
+.site-header .logo {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    line-height: 1;
+}
+.site-header .logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1;
+    white-space: nowrap;
+}
+.site-header .logo a > span {
+    display: block;
+    margin: 0;
+    padding: 0;
+    line-height: 1.15;
+}
+@media (max-width: 650px) {
+    .site-header .logo a { font-size: 20px; gap: 8px; }
+}
+@media (max-width: 360px) {
+    .site-header .logo a { font-size: 18px; }
+}
+.site-header .logo a,
+.site-header .nav-link,
+.site-header .nav-link .material-symbols-outlined,
+.site-header .btn-link,
+.site-header .btn-search,
+.site-header .icon-account,
+.site-header .icon-search,
+.site-header .icon-cart,
+.site-header .header-search label {
+    color: #542b0e;
+}
+.site-header .nav-link.active,
+.site-header .nav-link:hover { color: #925c30; }
+.site-header .nav-link::after { background: #925c30; }
+.site-header .btn-link,
+.site-header .btn-search,
+.site-header .btn-cart {
+    border-color: #d6b37e80;
+    background: transparent;
+    color: #542b0e;
+}
+.site-header .btn-link:hover,
+.site-header .btn-search:hover,
+.site-header .btn-cart:hover { background: #925c3012; color: #925c30; }
+.site-header .menu-toggle span { background: #542b0e; }
+.site-header .account-icon-svg { fill: #542b0e; }
+.site-header .cart-count { background: #ead3ac; color: #542b0e; }
+.site-header .nav-container { border-color: #c7985766; }
+@media (max-width: 768px) {
+    .site-header .nav-container { background: #f7e4d2; }
+}
+
+/* Thanh thông báo nâu trầm phía trên phần điều hướng nâu nhạt. */
+.site-header .header-topbar {
+    background: #542b0e url('../image/footter.png') center 30% / cover no-repeat;
+    color: #fff0d5;
+    border-bottom: 1px solid #d7b17c33;
+}
+.header-topbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    min-height: 34px;
+    padding: 5px 0;
+}
+.site-header .header-topbar a,
+.header-shipping-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #fff0d5;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.header-topbar .material-symbols-outlined { font-size: 16px; }
+.header-topbar a:hover { text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 480px) {
+    .header-topbar-inner { flex-wrap: wrap; justify-content: center; gap: 2px 14px; min-height: 32px; padding: 5px 0; }
+    .site-header .header-topbar a, .header-shipping-note { font-size: 10px; gap: 4px; }
+    .header-topbar .material-symbols-outlined { font-size: 14px; }
+}
+
+/* Bảng sản phẩm nổi bật của menu Sản phẩm. */
+.site-header .header-container { position: relative; }
+.site-header .featured-nav-item { position: static; display: flex; align-items: center; gap: 2px; }
+.featured-menu-toggle { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 36px; border: 0; border-radius: 4px; background: transparent; color: #542b0e; cursor: pointer; flex-shrink: 0; }
+.featured-menu-toggle span { font-size: 18px; transition: transform .2s; }
+.featured-is-open .featured-menu-toggle span { transform: rotate(180deg); }
+.featured-menu-toggle:focus-visible { outline: 2px solid #925c30; outline-offset: 2px; }
+.site-header .featured-menu[hidden] { display: none; }
+.site-header .featured-menu { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); z-index: 110; width: min(480px, calc(100vw - 32px)); padding: 12px; border: 1px solid #e7dac5; border-radius: 0 0 8px 8px; background: #fffaf2; color: #542b0e; box-shadow: 0 8px 20px #28150818; }
+.featured-menu-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; padding: 0 4px 10px; border-bottom: 1px solid #ede2d1; }
+.featured-menu-heading strong { font: 600 15px 'Segoe UI', Arial, sans-serif; }
+.site-header .featured-menu-heading > a { color: #956b38; font-size: 11px; }
+.featured-menu-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.site-header .featured-menu-product { display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 0; padding: 6px 4px; border: 1px solid transparent; border-radius: 5px; color: #542b0e; text-decoration: none; }
+.featured-menu-product:hover { background: #f3eadb; border-color: #e7dac5; }
+.featured-menu-product img { display: block; width: 64px; height: 56px; border-radius: 4px; object-fit: cover; background: #f5eddf; }
+.featured-menu-product > span { font-size: 11px; font-weight: 500; line-height: 1.45; text-align: center; }
+.featured-menu a:focus-visible { outline: 2px solid #956b38; outline-offset: 2px; }
+@media (max-width: 768px) {
+    .site-header .featured-nav-item { display: flex; flex-wrap: wrap; }
+    .site-header .featured-nav-item > .nav-link { flex: 1; width: auto; }
+    .featured-menu-toggle { width: 40px; height: 40px; }
+    .site-header .featured-menu { position: static; transform: none; width: 100%; padding: 10px; border-radius: 7px; box-shadow: none; margin: 4px 0 10px; }
+    .featured-menu-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(100px, 1fr); gap: 4px; overflow-x: auto; overscroll-behavior-x: contain; padding-bottom: 4px; }
+    .featured-menu-heading strong { font-size: 15px; }
+    .site-header .nav-container.show { max-height: calc(100vh - 120px); max-height: calc(100dvh - 120px); overflow-y: auto; }
+}
+@media (prefers-reduced-motion: reduce) { .featured-menu-toggle span { transition: none; } }
+

@@ -1,0 +1,166 @@
+﻿.site-footer {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    /* Phóng nền để loại phần viền trắng sẵn có ở trên và dưới ảnh. */
+    background: #542b0e url('../image/footter.png') center 21.4% / 100% 123.1% no-repeat;
+    color: #ead3ac;
+    margin-top: 60px;
+    padding: 54px 0 26px;
+}
+.site-footer .footer-content {
+    display: grid;
+    grid-template-columns: 1.1fr 1.25fr .9fr;
+    gap: 64px;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 48px 65px;
+}
+.site-footer .footer-brand {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+.site-footer .footer-brand-logo {
+    display: block;
+    width: 120px;
+    height: 164px;
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: brightness(0) saturate(100%) invert(93%) sepia(16%) saturate(442%) hue-rotate(337deg) brightness(101%) contrast(92%);
+    mix-blend-mode: normal;
+}
+.site-footer h3 {
+    color: #ead3ac;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 22px;
+    line-height: 1.35;
+    margin: 0 0 22px;
+}
+.site-footer .footer-brand h3 {
+    font-size: 29px;
+    white-space: nowrap;
+    margin-bottom: 10px;
+}
+.site-footer p, .site-footer a {
+    color: #ead3ac;
+    font-size: 16px;
+    line-height: 1.65;
+    text-decoration: none;
+}
+.site-footer .footer-brand p { margin: 0; max-width: 260px; }
+.site-footer .footer-contact-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin: 0 0 12px;
+}
+.site-footer .footer-contact-row .material-symbols-outlined {
+    font-size: 28px;
+    flex: 0 0 28px;
+    margin-top: 1px;
+    font-variation-settings: 'FILL' 1;
+}
+.site-footer .footer-contact-row a { overflow-wrap: anywhere; }
+.site-footer .footer-social { text-align: center; }
+.site-footer .footer-social h3 {
+    font-family: Arial, 'Segoe UI', sans-serif;
+    font-weight: 700;
+    letter-spacing: normal;
+    line-height: 1.5;
+}
+.site-footer .footer-social-links { display: flex; justify-content: center; gap: 16px; }
+.site-footer .footer-social-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: #ead3ac;
+    color: #542b0e;
+    transition: transform .2s, background .2s;
+}
+.site-footer .footer-social-link:hover { background: #fff0d5; transform: translateY(-3px); }
+.site-footer a:focus-visible { outline: 2px solid #fff0d5; outline-offset: 5px; }
+.site-footer .footer-facebook { font-family: Arial, sans-serif; font-size: 44px; font-weight: 800; padding-top: 8px; }
+.site-footer .footer-zalo { font-family: Georgia, serif; font-size: 18px; font-weight: bold; }
+.site-footer .footer-bottom {
+    border-top: none;
+    padding: 62px 20px 0;
+    margin: 0;
+    color: #ead3ac;
+    text-align: center;
+}
+.site-footer .footer-bottom p { margin: 0; }
+.site-footer .footer-policies { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px 24px; max-width: 1200px; margin: 0 auto 18px; }
+.site-footer .footer-policies a { color: #f3dfbf; font-size: 14px; line-height: 1.6; font-weight: 500; letter-spacing: 0; text-decoration: none; }
+.site-footer .footer-policies a:hover { color: #fff4e1; text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 650px) {
+    .site-footer .footer-policies { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 16px; margin-bottom: 18px; text-align: left; }
+    .site-footer .footer-policies a { font-size: 12px; }
+}
+@media (max-width: 1100px) {
+    .site-footer .footer-content { gap: 30px; padding-inline: 24px; grid-template-columns: 1.2fr 1.2fr .8fr; }
+    .site-footer .footer-brand { gap: 14px; }
+    .site-footer .footer-brand-logo { width: 86px; height: 132px; }
+    .site-footer .footer-brand h3 { font-size: 23px; }
+    .site-footer h3 { font-size: 20px; }
+}
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 26px 0 22px;
+        margin-top: 28px;
+        background: radial-gradient(ellipse at center, #74370f, #542b0e);
+    }
+    .site-footer::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        aspect-ratio: 1916 / 667;
+        z-index: -1;
+        pointer-events: none;
+        /* Hiện đủ hai góc sen, giữ tỷ lệ phần nền nâu và bỏ viền trắng. */
+        background: url('../image/footter.png') center 21.4% / 100% 123.1% no-repeat;
+        -webkit-mask-image: linear-gradient(transparent, #000 25%);
+        mask-image: linear-gradient(transparent, #000 25%);
+    }
+    .site-footer .footer-content {
+        width: 100%;
+        max-width: 560px;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+        padding: 0 20px 18px;
+    }
+    .site-footer .footer-content > *,
+    .site-footer .footer-brand > div,
+    .site-footer .footer-contact-row > :last-child { min-width: 0; }
+    .site-footer .footer-brand { justify-content: flex-start; gap: 14px; }
+    .site-footer .footer-brand-logo { width: 64px; height: 78px; }
+    .site-footer .footer-brand h3 { font-size: 22px; margin-bottom: 4px; white-space: normal; }
+    .site-footer .footer-brand p { max-width: 320px; font-size: 13px; line-height: 1.5; }
+    .site-footer h3 { font-size: 17px; margin-bottom: 12px; }
+    .site-footer p, .site-footer a { font-size: 14px; line-height: 1.55; }
+    .site-footer .footer-contact { width: 100%; }
+    .site-footer .footer-contact-row { gap: 10px; margin-bottom: 8px; }
+    .site-footer .footer-contact-row:last-child { margin-bottom: 0; }
+    .site-footer .footer-contact-row .material-symbols-outlined { font-size: 21px; flex-basis: 21px; }
+    .site-footer .footer-contact-row > :last-child { overflow-wrap: anywhere; }
+    .site-footer .footer-social {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        width: 100%;
+        text-align: left;
+    }
+    .site-footer .footer-social h3 { font-size: 15px; margin: 0; }
+    .site-footer .footer-social-links { justify-content: flex-start; gap: 8px; flex-shrink: 0; }
+    .site-footer .footer-social-link { width: 34px; height: 34px; }
+    .site-footer .footer-facebook { font-size: 27px; padding-top: 4px; }
+    .site-footer .footer-zalo { font-size: 12px; }
+    .site-footer .footer-bottom { padding: 8px 20px 0; }
+    .site-footer .footer-bottom p { max-width: 360px; margin: auto; font-size: 12px; line-height: 1.6; text-wrap: balance; }
+}

@@ -1,0 +1,100 @@
+﻿/* Introduction: vertical journey and historical timeline. */
+html { scroll-behavior: smooth; }
+.heritage-page {
+    --paper: #f8f1e5; --ink: #402c1d; --muted: #796854; --copper: #976a37; --rule: #dfceb4;
+    color: var(--ink); background: var(--paper); padding: 24px 24px 48px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+.heritage-page *, .heritage-page *::before, .heritage-page *::after { box-sizing: border-box; }
+.heritage-paper { max-width: 1180px; margin: auto; }
+.heritage-page h1, .heritage-page h2, .heritage-page blockquote { font-family: Georgia, 'Times New Roman', serif; color: var(--ink); }
+.heritage-page h2 { font-size: 28px; line-height: 1.35; margin: 0 0 14px; }
+.heritage-page h3 { font-size: 17px; line-height: 1.5; margin: 22px 0 10px; color: var(--ink); }
+.heritage-page p { font-size: 17px; line-height: 1.8; margin: 0 0 16px; }
+.heritage-page a { color: #805527; text-underline-offset: 4px; }
+.heritage-page a:hover { color: #402c1d; }
+.heritage-page a:focus-visible { outline: 2px solid var(--copper); outline-offset: 4px; }
+.heritage-masthead { text-align: center; padding: 20px 0 28px; }
+.heritage-page .heritage-kicker { font-size: 11px; font-weight: 600; letter-spacing: 1.1px; color: var(--copper); }
+.heritage-kicker span { padding: 0 8px; }
+.heritage-page .heritage-masthead h1 { font-family: 'Segoe UI', Arial, sans-serif; font-size: clamp(28px, 3.5vw, 42px); font-weight: 700; line-height: 1.3; letter-spacing: 0; word-spacing: normal; margin: 10px 0; }
+.heritage-masthead h1 em { font-style: normal; font-weight: inherit; }
+.heritage-page .heritage-subtitle { font-size: 12px; letter-spacing: 3px; margin: 0; }
+.heritage-lead { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 40px; padding: 24px 0 36px; border-block: 1px solid var(--rule); }
+.heritage-page .heritage-lead h2 { font-family: 'Segoe UI', Arial, sans-serif; font-size: 28px; font-weight: 700; line-height: 1.4; letter-spacing: 0; word-spacing: normal; text-align: left; margin: 10px 0 14px; }
+.heritage-text-link { display: inline-flex; gap: 16px; align-items: center; font-size: 13px; font-weight: 600; }
+.heritage-page figure { max-width: 380px; margin: 18px 0; }
+.heritage-page figure img { display: block; width: 100%; height: auto; max-height: 240px; object-fit: contain; border-radius: 8px; }
+.heritage-page figcaption { font-size: 11px; line-height: 1.6; color: var(--muted); margin-top: 8px; }
+.heritage-page .heritage-lead-photo { margin: 0; }
+.heritage-lead-photo img { aspect-ratio: 1.8; object-fit: cover; }
+.heritage-journey { padding-top: 40px; }
+.heritage-progress { min-width: 0; border-left: 2px solid var(--rule); }
+.heritage-progress > .heritage-section { position: relative; padding: 0 0 30px 36px; margin: 0; scroll-margin-top: 200px; }
+.heritage-progress > .heritage-section > h2 {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0;
+    word-spacing: normal;
+    text-align: left;
+    white-space: normal;
+    margin: 0 0 14px;
+}
+.heritage-progress > .heritage-section::before { content: ''; position: absolute; top: 9px; left: -7px; width: 12px; height: 12px; border: 3px solid var(--paper); border-radius: 50%; background: var(--copper); outline: 1px solid var(--copper); }
+.heritage-progress > .heritage-section:last-child { padding-bottom: 0; }
+.heritage-note, .heritage-geography { border-left: 3px solid #be9563; background: #f0e3d0; padding: 16px 20px; margin: 22px 0; border-radius: 0 6px 6px 0; }
+.heritage-note strong, .heritage-geography strong { display: block; font-size: 16px; margin-bottom: 8px; }
+.heritage-page .heritage-note p, .heritage-page .heritage-geography p { font-size: 15px; margin: 0; }
+.heritage-geography > span { display: block; font-size: 10px; letter-spacing: 1px; color: var(--muted); margin-bottom: 8px; }
+.heritage-page .heritage-intro { color: var(--muted); }
+.heritage-timeline { list-style: none; margin: 28px 0 0; padding: 0; }
+.heritage-timeline li { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 240px); column-gap: 24px; padding: 24px; margin: 0 0 24px; border: 1px solid var(--rule); background: #fffaf2; border-radius: 10px; }
+.heritage-timeline li::before { content: ''; position: absolute; top: 30px; left: -44px; width: 12px; height: 12px; border: 3px solid var(--paper); border-radius: 50%; background: var(--copper); outline: 1px solid var(--copper); }
+.heritage-era { grid-column: 1; font-size: 12px; font-weight: 700; letter-spacing: .6px; color: #91602c; }
+.heritage-timeline li h3 { grid-column: 1; margin: 8px 0 12px; font-size: 20px; }
+.heritage-timeline li > p { grid-column: 1; margin: 0; font-size: 16px; }
+.heritage-timeline li figure { grid-column: 2; grid-row: 1 / span 3; margin: 0; }
+.heritage-timeline li figure img { aspect-ratio: auto; max-height: 190px; object-fit: contain; }
+.heritage-timeline li:not(:has(figure)) { grid-template-columns: minmax(0, 1fr); }
+.heritage-page .heritage-smallprint { font-size: 12px; color: var(--muted); }
+.heritage-values blockquote { margin: 14px 0 20px; font-family: 'Segoe UI', Arial, sans-serif; font-size: 20px; line-height: 1.65; font-style: italic; font-weight: 400; letter-spacing: 0; word-spacing: normal; text-align: left; color: #805527; }
+.heritage-values-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.heritage-values-grid h3 { font-size: 15px; margin-top: 0; }
+.heritage-values-grid p { font-size: 15px; }
+.heritage-brand-signature { display: flex; align-items: center; gap: 16px; margin-top: 20px; }
+.heritage-brand-signature img { object-fit: contain; }
+.heritage-brand-signature strong { display: block; font: 24px Georgia, serif; }
+.heritage-brand-signature span { display: block; margin-top: 6px; font-size: 10px; letter-spacing: .5px; }
+.heritage-footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; padding: 0 20px 20px; }
+.heritage-footer-nav a { color: #ead3ac; font-size: 13px; }
+.heritage-page + .site-footer { margin-top: 0; }
+@media (max-width: 1000px) {
+    .heritage-timeline li { display: block; padding: 20px; }
+    .heritage-timeline li figure { margin-top: 20px; }
+    .heritage-timeline li figure { max-width: 300px; }
+    .heritage-timeline li figure img { max-height: 190px; }
+    .heritage-values-grid { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+}
+@media (max-width: 700px) {
+    .heritage-page { padding: 16px 18px 32px; }
+    .heritage-page h2 { font-size: 23px; }
+    .heritage-page p { font-size: 16px; }
+    .heritage-progress > .heritage-section > h2 { font-size: 22px; margin-bottom: 12px; }
+    .heritage-page .heritage-kicker { font-size: 9px; letter-spacing: .3px; }
+    .heritage-page .heritage-subtitle { font-size: 10px; letter-spacing: 1.5px; }
+    .heritage-masthead { padding-top: 10px; }
+    .heritage-lead { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+    .heritage-page .heritage-lead h2 { font-size: 24px; }
+    .heritage-journey { padding-top: 24px; }
+    .heritage-progress { margin-left: 5px; }
+    .heritage-progress > .heritage-section { padding-left: 22px; padding-bottom: 28px; }
+    .heritage-timeline li { padding: 16px; margin-bottom: 18px; }
+    .heritage-timeline li::before { left: -30px; }
+    .heritage-timeline li h3 { font-size: 18px; }
+    .heritage-values blockquote { font-size: 18px; }
+    .heritage-brand-signature { gap: 10px; }
+    .heritage-brand-signature span { font-size: 8px; letter-spacing: 0; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
