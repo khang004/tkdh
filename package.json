@@ -1,0 +1,7 @@
+﻿{
+  "name": "moc-huong-web",
+  "private": true,
+  "type": "module",
+  "scripts": { "start": "node server.mjs", "test": "node --test news/news.test.mjs" },
+  "engines": { "node": ">=22" }
+}
