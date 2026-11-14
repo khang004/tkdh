@@ -95,8 +95,9 @@
 .auth-scene::after { background: linear-gradient(180deg, #41220908, transparent 65%, #20170b33); }
 @media (max-width: 650px) {
     .auth-scene { min-height: 245px; }
-    .auth-image-brand { padding-top: 14px; gap: 8px; }
+    .auth-scene::after { background: radial-gradient(ellipse at 50% 40%, #fff0d9f5 0%, #fff0d9dc 38%, #fff0d96b 70%, #fff0d900 100%); }
+    .auth-image-brand { padding: 12px; gap: 6px; justify-content: center; }
     .auth-form-brand img { width: 130px; height: 154px; }
-    .auth-image-brand .auth-brand-name { font-size: 23px; }
-    .auth-image-brand .auth-slogan { font-size: 10px; letter-spacing: .3px; }
+    .auth-image-brand .auth-brand-name { font-size: 23px; color: #48240d; text-shadow: 0 1px 2px #fff2df; }
+    .auth-image-brand .auth-slogan { font-size: 10px; letter-spacing: .3px; color: #48240d; text-shadow: 0 1px 2px #fff2df; }
 }
