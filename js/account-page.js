@@ -63,6 +63,12 @@ function selectAccountSection() {
     });
 }
 
+function accountOrderItem(item) {
+    const esc = escapeAccountText;
+    const image = window.productImages?.[item.id] || item.image || '../image/logo-thuong-hieu.png';
+    return `<li><img class="order-product-image" src="${esc(image)}" alt="${esc(item.name)}" width="64" height="64" loading="lazy"><div class="order-product-info"><span class="order-product-name">${esc(item.name)}</span><span class="order-product-quantity">Số lượng: ${esc(item.quantity)}</span></div><strong class="order-product-total">${accountMoney(item.price * item.quantity)}</strong></li>`;
+}
+
 function renderAccountOrders() {
     const filter = accountField('orderFilter').value;
     const orders = Account.orders().filter(order => filter === 'all' || order.status === filter);
@@ -75,8 +81,8 @@ function renderAccountOrders() {
     container.innerHTML = orders.map(order => `<article class="account-order">
         <div class="order-top"><strong>${esc(order.id)}</strong><span class="order-status ${order.status === 'cancelled' ? 'cancelled' : ''}">${order.status === 'cancelled' ? 'Đã hủy' : 'Chờ xác nhận'}</span></div>
         <p class="order-date">${esc(new Date(order.createdAt).toLocaleString('vi-VN'))} · ${order.items.length} sản phẩm · <strong>${accountMoney(order.total)}</strong></p>
+        <ul class="order-items">${order.items.map(accountOrderItem).join('')}</ul>
         <details><summary>Xem chi tiết đơn hàng</summary>
-            <ul class="order-items">${order.items.map(item => `<li><span>${esc(item.name)} × ${item.quantity}</span><strong>${accountMoney(item.price * item.quantity)}</strong></li>`).join('')}</ul>
             <p><strong>Người nhận:</strong> ${esc(order.shipping.name)} · ${esc(order.shipping.phone)}</p>
             <p><strong>Địa chỉ:</strong> ${esc(order.shipping.address)}</p>
             ${order.shipping.note ? `<p><strong>Ghi chú:</strong> ${esc(order.shipping.note)}</p>` : ''}
@@ -85,6 +91,9 @@ function renderAccountOrders() {
         </details>
         <div class="order-actions"><button type="button" class="btn-secondary" data-repeat="${esc(order.id)}">Mua lại</button>${order.status === 'pending' ? `<button type="button" class="btn-link" data-cancel="${esc(order.id)}">Hủy đơn</button>` : ''}</div>
     </article>`).join('');
+    container.querySelectorAll('.order-product-image').forEach(image => {
+        image.addEventListener('error', () => { image.src = '../image/logo-thuong-hieu.png'; }, { once: true });
+    });
 }
 
 function repeatAccountOrder(id) {
