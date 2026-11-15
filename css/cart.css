@@ -1,5 +1,6 @@
 ﻿/* Giỏ hàng: nền ngang gio_hang.png, màu kem và nâu đồng. */
-.cart-banner { background: #e9bb75 url('../image/gio_hang.png') center / cover no-repeat; min-height: 176px; display: grid; place-items: center; padding: 24px; text-align: center; }
+.cart-banner { position: relative; isolation: isolate; overflow: hidden; background: #e9bb75; min-height: 176px; display: grid; place-items: center; padding: 24px; text-align: center; }
+.cart-banner::before { content: ''; position: absolute; inset: 0; z-index: -1; background: url('../image/gio_hang.png') center / cover no-repeat; transform: scale(1.02); pointer-events: none; }
 .cart-banner-content { max-width: 720px; color: #542b0e; }
 .cart-banner-content > p { font-size: 10px; font-weight: 700; letter-spacing: 1.4px; margin-bottom: 8px; }
 .cart-banner h1 { font: 400 44px/1.2 'Times New Roman', Georgia, serif; margin: 0 0 10px; color: #542b0e; }
@@ -64,7 +65,8 @@
     .cart-page .cart-table td:first-child { width: 48%; }
 }
 @media (max-width: 768px) {
-    .cart-banner { min-height: 140px; padding: 20px; background-position: 55% center; }
+    .cart-banner { min-height: 140px; padding: 20px; }
+    .cart-banner::before { background-position: 55% center; }
     .cart-banner-content > p { font-size: 8px; letter-spacing: .6px; }
     .cart-banner h1 { font-size: 34px; }
     .cart-banner-content > span { font-size: 11px; }
