@@ -69,6 +69,66 @@ function accountOrderItem(item) {
     return `<li><img class="order-product-image" src="${esc(image)}" alt="${esc(item.name)}" width="64" height="64" loading="lazy"><div class="order-product-info"><span class="order-product-name">${esc(item.name)}</span><span class="order-product-quantity">Số lượng: ${esc(item.quantity)}</span></div><strong class="order-product-total">${accountMoney(item.price * item.quantity)}</strong></li>`;
 }
 
+function accountOrderDetails(order) {
+    const esc = escapeAccountText;
+    const shipping = order.shipping || {};
+    const bank = order.payment === 'Bank';
+    return `<div class="order-detail-grid">
+            <section class="order-detail-section">
+                <h3><span class="material-symbols-outlined" aria-hidden="true">local_shipping</span>Thông tin nhận hàng</h3>
+                <dl class="order-recipient">
+                    <div><dt>Người nhận</dt><dd>${esc(shipping.name)}</dd></div>
+                    <div><dt>Số điện thoại</dt><dd>${esc(shipping.phone)}</dd></div>
+                    <div><dt>Địa chỉ giao hàng</dt><dd>${esc(shipping.address)}</dd></div>
+                    ${shipping.note ? `<div class="order-delivery-note"><dt>Ghi chú giao hàng</dt><dd>${esc(shipping.note)}</dd></div>` : ''}
+                </dl>
+            </section>
+            <section class="order-detail-section order-payment-section">
+                <h3><span class="material-symbols-outlined" aria-hidden="true">payments</span>Thông tin thanh toán</h3>
+                <p class="order-payment-method">${bank ? 'Chuyển khoản ngân hàng' : 'Thanh toán khi nhận hàng (COD)'}</p>
+                ${bank && order.status !== 'cancelled' ? '<span class="order-payment-pending">Chưa xác nhận thanh toán</span>' : ''}
+                <dl class="order-costs">
+                    <div><dt>Phí giao hàng</dt><dd>Chưa tính</dd></div>
+                </dl>
+                <p class="order-cost-note">Số tiền trên chưa bao gồm phí giao hàng.</p>
+            </section>
+        </div>`;
+}
+
+function attachOrderImages(container) {
+    container.querySelectorAll('.order-product-image').forEach(image => {
+        image.addEventListener('error', () => { image.src = '../image/logo-thuong-hieu.png'; }, { once: true });
+    });
+}
+
+function openAccountOrder(id) {
+    const order = Account.orders().find(item => item.id === id);
+    if (!order) { showToast('Không tìm thấy đơn hàng.'); return; }
+    let dialog = document.getElementById('accountOrderDialog');
+    if (!dialog) {
+        dialog = document.createElement('dialog');
+        dialog.id = 'accountOrderDialog'; dialog.className = 'order-dialog';
+        dialog.setAttribute('aria-labelledby', 'orderDialogTitle');
+        document.body.append(dialog);
+        dialog.addEventListener('click', event => {
+            if (event.target === dialog || event.target.closest('[data-close-order]')) dialog.close();
+        });
+        dialog.addEventListener('close', () => {
+            document.documentElement.classList.remove('account-order-open');
+            dialog.replaceChildren();
+        });
+    }
+    const esc = escapeAccountText;
+    const count = order.items.reduce((sum, item) => sum + item.quantity, 0);
+    dialog.innerHTML = `<header class="order-dialog-header"><div><h2 id="orderDialogTitle">Chi tiết đơn hàng</h2><p>${esc(order.id)}</p></div><button type="button" data-close-order aria-label="Đóng chi tiết đơn hàng"><span class="material-symbols-outlined" aria-hidden="true">close</span></button></header>
+        <div class="order-dialog-body"><div class="order-dialog-meta"><span class="order-status ${order.status === 'cancelled' ? 'cancelled' : ''}">${order.status === 'cancelled' ? 'Đã hủy' : 'Chờ xác nhận'}</span><span>${esc(new Date(order.createdAt).toLocaleString('vi-VN'))}</span></div><h3 class="order-products-heading">Sản phẩm đã đặt <span>(${count})</span></h3><ul class="order-items">${order.items.map(accountOrderItem).join('')}</ul>${accountOrderDetails(order)}</div>
+        <footer class="order-dialog-footer"><div><span>Tổng tiền sản phẩm</span><strong>${accountMoney(order.total)}</strong></div><button type="button" data-close-order>Đóng</button></footer>`;
+    attachOrderImages(dialog);
+    dialog.querySelector('.order-dialog-body').scrollTop = 0;
+    document.documentElement.classList.add('account-order-open');
+    if (!dialog.open) dialog.showModal();
+}
+
 function renderAccountOrders() {
     const filter = accountField('orderFilter').value;
     const orders = Account.orders().filter(order => filter === 'all' || order.status === filter);
@@ -81,19 +141,11 @@ function renderAccountOrders() {
     container.innerHTML = orders.map(order => `<article class="account-order">
         <div class="order-top"><strong>${esc(order.id)}</strong><span class="order-status ${order.status === 'cancelled' ? 'cancelled' : ''}">${order.status === 'cancelled' ? 'Đã hủy' : 'Chờ xác nhận'}</span></div>
         <p class="order-date">${esc(new Date(order.createdAt).toLocaleString('vi-VN'))} · ${order.items.length} sản phẩm · <strong>${accountMoney(order.total)}</strong></p>
-        <ul class="order-items">${order.items.map(accountOrderItem).join('')}</ul>
-        <details><summary>Xem chi tiết đơn hàng</summary>
-            <p><strong>Người nhận:</strong> ${esc(order.shipping.name)} · ${esc(order.shipping.phone)}</p>
-            <p><strong>Địa chỉ:</strong> ${esc(order.shipping.address)}</p>
-            ${order.shipping.note ? `<p><strong>Ghi chú:</strong> ${esc(order.shipping.note)}</p>` : ''}
-            <p><strong>Thanh toán:</strong> ${order.payment === 'Bank' ? 'Chuyển khoản — chưa xác nhận thanh toán' : 'Thanh toán khi nhận hàng'}</p>
-            <p><strong>Phí giao hàng:</strong> Chưa tính. Tổng tiền là tiền sản phẩm.</p>
-        </details>
-        <div class="order-actions"><button type="button" class="btn-secondary" data-repeat="${esc(order.id)}">Mua lại</button>${order.status === 'pending' ? `<button type="button" class="btn-link" data-cancel="${esc(order.id)}">Hủy đơn</button>` : ''}</div>
+        <ul class="order-items">${order.items.slice(0, 2).map(accountOrderItem).join('')}</ul>
+        ${order.items.length > 2 ? `<button type="button" class="order-preview-more" data-details="${esc(order.id)}">+ ${order.items.length - 2} sản phẩm khác</button>` : ''}
+        <div class="order-actions"><button type="button" class="order-view-button" data-details="${esc(order.id)}"><span class="material-symbols-outlined" aria-hidden="true">visibility</span>Xem chi tiết</button><button type="button" class="btn-secondary" data-repeat="${esc(order.id)}">Mua lại</button>${order.status === 'pending' ? `<button type="button" class="btn-link" data-cancel="${esc(order.id)}">Hủy đơn</button>` : ''}</div>
     </article>`).join('');
-    container.querySelectorAll('.order-product-image').forEach(image => {
-        image.addEventListener('error', () => { image.src = '../image/logo-thuong-hieu.png'; }, { once: true });
-    });
+    attachOrderImages(container);
 }
 
 function repeatAccountOrder(id) {
@@ -147,6 +199,8 @@ document.addEventListener('DOMContentLoaded', () => {
         try { renderAccountOrders(); } catch (error) { showToast(error.message); }
     });
     accountField('accountOrders').addEventListener('click', event => {
+        const details = event.target.closest('[data-details]');
+        if (details) { openAccountOrder(details.dataset.details); return; }
         const cancel = event.target.closest('[data-cancel]');
         const repeat = event.target.closest('[data-repeat]');
         if (!cancel && !repeat) return;
